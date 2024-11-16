@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -14,7 +14,6 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.27.0",
     "react-toastify": "^10.0.6",
-    "sweetalert2": "^11.6.13",
     "uuid": "^11.0.2",
     "uuidv4": "^6.2.13"
   },
