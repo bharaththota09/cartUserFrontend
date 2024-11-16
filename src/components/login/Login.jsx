@@ -43,7 +43,6 @@ function Login() {
 
       const data = await response.json();
       if (data && data.userid) {
-        // Set cookies for token and userId
         Cookies.set('token', data.token);
         Cookies.set('userId', data.userid);
         setError('');

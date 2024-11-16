@@ -6,6 +6,7 @@ import Home from './components/home/Home'
 import Cart from "./components/cart/Cart"
 import Signup from './components/signup/Signup'
 import Login from './components/login/Login'
+import { ToastContainer} from "react-toastify";
 function App() {
  
   
@@ -13,6 +14,8 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
+
+<ToastContainer />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />

@@ -2,7 +2,8 @@ import React, { useContext, useState, useEffect } from "react";
 import "./Cart.css";
 import CartContext from "../../context/CartContext";
 import Cookies from "js-cookie";
-import Swal from "sweetalert2";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 function Cart() {
   let userId = parseInt(Cookies.get('userId'))
@@ -53,36 +54,28 @@ function Cart() {
         body: JSON.stringify(order),
       });
       if (response.ok) {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Order placed Sucessfully",
-          showConfirmButton: false,
-          timer: 1500,
+        toast.success("Order placed successfully!", {
+          position: "top-center",
+          autoClose: 1000,
         });
         setCartList([]);
         navigate("/myorders");
       } else {
-        Swal.fire({
-          position: "center",
-          icon: "error",
-          title: "Something Error Occured",
-          showConfirmButton: false,
-          timer: 1500,
+        toast.error("Something went wrong, please try again.", {
+          position: "top-center",
+          autoClose: 1000, 
         });
       }
     } catch (error) {
       console.error("Error posting order:", error);
-      Swal.fire({
-        position: "center",
-        icon: "error",
-        title: "Something Error Occured",
-        showConfirmButton: false,
-        timer: 1500,
+      toast.error("Something went wrong, please try again.", {
+        position: "top-center",
+        autoClose: 1000, 
       });
     }
   };
-
+  
+  
   return (
     <div className="cart-container">
       {cartList.map((each) => (
@@ -146,6 +139,7 @@ function Cart() {
           </p>
         </>
       )}
+
     </div>
   );
 }
